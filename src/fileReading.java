@@ -30,7 +30,7 @@ public class fileReading {
     }
 
     public String get_first_line() {
-        return (String)this.list.get(0);
+        return (String)this.list.get(1);
     }
 
     public String get_tenth_line() {
@@ -39,5 +39,8 @@ public class fileReading {
 
     public int get_num_of_lines() {
         return this.list.size();
+    }
+    public ArrayList<String> get_lines() {
+        return (ArrayList<String>)this.list;
     }
 }

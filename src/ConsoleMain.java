@@ -3,7 +3,7 @@ public class ConsoleMain {
     }
 
     public static void main(String[] args) {
-        String path = "C:/GDP.CSV";
+        String path = "GDP.csv";
         fileReading file = new fileReading(path);
         file.process_file();
         System.out.println(file.get_first_line());
