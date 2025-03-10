@@ -29,6 +29,22 @@ public class fileReading {
         }
     }
 
+    public String get_header_line() {
+        //return (String)this.list.get(0).replace(",", " ");
+        String[] headers = this.list.get(0).split(","); // Split by comma
+        StringBuilder formattedHeader = new StringBuilder();
+
+        for (int i = 0; i < headers.length; i++) {
+            if (i != 1) { // Skip the second column (index 1)
+                if (formattedHeader.length() > 0) {
+                    formattedHeader.append(" "); // Add space between headers
+                }
+                formattedHeader.append(headers[i]);
+            }
+        }
+
+        return formattedHeader.toString();
+    }
     public String get_first_line() {
         return (String)this.list.get(1);
     }
