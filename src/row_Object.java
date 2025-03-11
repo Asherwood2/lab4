@@ -1,3 +1,6 @@
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 class row_Object {
@@ -12,4 +15,18 @@ class row_Object {
         this.country_code = country_code;
         this.gdp_Values = gdp_Values;
     }
+
+    public String get_data_Type(){
+        return data_Type;
+    }
+    public String getCountry(){
+        return country;
+    }
+    public String getCountry_code(){
+        return country_code;
+    }
+    public List<Double> getGdp_Values(){
+        return gdp_Values;
+    }
+
 }

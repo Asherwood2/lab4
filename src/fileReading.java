@@ -3,12 +3,13 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class fileReading {
-    String filename;
-    List<String> list = new ArrayList();
-    String line = "";
+    private String filename;
+    private List<String> list = new ArrayList();
+    private String line = "";
 
     public fileReading(String name) {
         this.filename = name;
@@ -30,20 +31,14 @@ public class fileReading {
     }
 
     public String get_header_line() {
-        //return (String)this.list.get(0).replace(",", " ");
-        String[] headers = this.list.get(0).split(","); // Split by comma
-        StringBuilder formattedHeader = new StringBuilder();
 
-        for (int i = 0; i < headers.length; i++) {
-            if (i != 1) { // Skip the second column (index 1)
-                if (formattedHeader.length() > 0) {
-                    formattedHeader.append(" "); // Add space between headers
-                }
-                formattedHeader.append(headers[i]);
-            }
-        }
+        String headerLine = (String) this.list.get(0);
+        String[] columns = headerLine.split(",");
 
-        return formattedHeader.toString();
+        //Creating a column list to remove Series Code as I'm not using that column
+        List<String> columnList = new ArrayList<>(Arrays.asList(columns));
+        columnList.remove("Series Code");
+        return String.join(",", columnList);
     }
     public String get_first_line() {
         return (String)this.list.get(1);
@@ -57,6 +52,6 @@ public class fileReading {
         return this.list.size();
     }
     public ArrayList<String> get_lines() {
-        return (ArrayList<String>)this.list;
+        return (ArrayList<String>) list;
     }
 }
