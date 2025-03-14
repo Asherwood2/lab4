@@ -5,6 +5,7 @@ public class JTableCalculation {
     private final String file_Name = "GDP.csv";
     private String[] columns;
     private Object[][] data;
+    private List<row_Object> list_of_objects;
 
 
     void calculation() {
@@ -13,7 +14,7 @@ public class JTableCalculation {
         List<String> list = file.get_lines();
         StreamParser parser = new StreamParser();
         //Calling parser method and passing in that list, getting a list of objects back
-        List<row_Object> list_of_objects = parser.parser((ArrayList<String>) list);
+        list_of_objects = parser.parser((ArrayList<String>) list);
 
 
         //Creating columns array for JTable
@@ -53,6 +54,9 @@ public class JTableCalculation {
     }
     Object[][] getData() {
         return this.data;
+    }
+    List<row_Object> getListOfObjects() {
+        return list_of_objects;
     }
 }
 

@@ -33,7 +33,6 @@ public class StreamParser {
                         })
                         .collect(Collectors.toList());
 
-                System.out.println("GDP Values: " + gdp_Values); // Debug print for GDP values
 
                 // Returns a row object
                 return new row_Object(type, country, country_code, gdp_Values);

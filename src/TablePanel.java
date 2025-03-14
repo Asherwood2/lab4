@@ -3,6 +3,8 @@ import java.awt.*;
 
 public class TablePanel extends JPanel {
     private JTable jtable;
+    private JScrollPane jsp;
+
 
     public TablePanel(String[] columns, Object[][] data) {
         jtable = new JTable(data, columns);
@@ -14,12 +16,15 @@ public class TablePanel extends JPanel {
         }
 
         //Creating scroll pane to be able to scroll
-        JScrollPane jsp = new JScrollPane(jtable);
-        this.add(jsp, BorderLayout.CENTER);
-        this.setLayout(new BorderLayout());
-
+        jsp = new JScrollPane(jtable);
+        //this.add(jsp, BorderLayout.CENTER);
+        //this.setLayout(new BorderLayout());
+        //mainPanel.add(jsp, BorderLayout.SOUTH);
        // frame.setSize(frame.getWidth(), frame.getHeight());
         //frame.setVisible(true);
+    }
+    public JScrollPane getScrollPane() {
+        return jsp;
     }
 
 }
