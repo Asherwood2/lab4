@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.util.List;
 
 public class Part2Panel extends JPanel {
@@ -27,7 +28,38 @@ public class Part2Panel extends JPanel {
     }
 
     private void implement_check_box() {
+        checkBox1.addItemListener(new ItemListener() {
 
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (checkBox1.isSelected())
+                {
+
+                }
+            }
+        });
+
+        checkBox2.addItemListener(new ItemListener() {
+
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (checkBox2.isSelected())
+                {
+
+                }
+            }
+        });
+
+        checkBox3.addItemListener(new ItemListener() {
+
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if (checkBox3.isSelected())
+                {
+
+                }
+            }
+        });
     }
 
     public JPanel getPanel() {

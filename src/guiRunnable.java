@@ -40,50 +40,18 @@ public class guiRunnable {
         checkbox.add(checkBox3);
 
 
-        checkBox1.addItemListener(new ItemListener() {
-
-            @Override
-            public void itemStateChanged(ItemEvent e) {
-                if (checkBox1.isSelected())
-                {
-
-                }
-            }
-        });
-
-        checkBox2.addItemListener(new ItemListener() {
-
-            @Override
-            public void itemStateChanged(ItemEvent e) {
-                if (checkBox2.isSelected())
-                {
-
-                }
-            }
-        });
-
-        checkBox3.addItemListener(new ItemListener() {
-
-            @Override
-            public void itemStateChanged(ItemEvent e) {
-                if (checkBox3.isSelected())
-                {
-
-                }
-            }
-        });
-
-       frame.setSize(frame.getWidth(), frame.getHeight());
+       //frame.setSize(frame.getWidth(), frame.getHeight());
        frame.setVisible(true);
 
 
        //Adding checkbox to main panel
        mainPanel.add(checkbox, BorderLayout.NORTH);
-
+        //JPanel tablePanel = new JPanel();
        //Adding JScrollpanel which contains JTable to the main panel
         mainPanel.add(panel.getScrollPane(), BorderLayout.SOUTH);
 
        //adding mainPanel to the frame
+        //tablePanel.add(panel.getScrollPane(), BorderLayout.WEST);
         frame.add(mainPanel);
     }
 }
