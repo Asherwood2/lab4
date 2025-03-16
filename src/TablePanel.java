@@ -73,4 +73,7 @@ public class TablePanel extends JPanel {
     public JScrollPane getScrollPane() {
         return jsp;
     }
+    public JLabel getLabel() {
+        return lbl;
+    }
 }
