@@ -3,6 +3,7 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.util.List;
 
+
 public class Part2Panel extends JPanel {
     private List<row_Object> row_objectList;
     private JPanel checkbox;
@@ -14,13 +15,10 @@ public class Part2Panel extends JPanel {
 
     public Part2Panel(List<row_Object> row_objectList) {
         this.row_objectList = row_objectList;
-    }
-
-    private void createFilters() {
-        JPanel checkbox = new JPanel();
-        checkBox1 = new JCheckBox("Filter countries that have GDP data for every year");
-        checkBox2 = new JCheckBox("Filter countries that have more than 10 Billion dollars in GDP every year");
-        checkBox3 = new JCheckBox("Filter");
+        this.checkbox = new JPanel();
+        checkBox1 = new JCheckBox("Fully populated countries");
+        checkBox2 = new JCheckBox("Countries that have more than 10 Billion dollars in GDP every year");
+        checkBox3 = new JCheckBox("Top 20 avg GDP");
 
         checkbox.add(checkBox1);
         checkbox.add(checkBox2);
@@ -61,13 +59,7 @@ public class Part2Panel extends JPanel {
             }
         });
     }
-
-    public JPanel getPanel() {
+    public JPanel getFilters() {
         return checkbox;
     }
-
-
-
-
-
 }

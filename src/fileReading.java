@@ -14,7 +14,7 @@ public class fileReading {
     public fileReading(String name) {
         this.filename = name;
     }
-
+    //Reading the file and putting each row of CSV into an arraylist
     public void process_file() {
         try {
             BufferedReader br = new BufferedReader(new FileReader(this.filename));
@@ -40,6 +40,7 @@ public class fileReading {
         columnList.remove("Series Code");
         return String.join(",", columnList);
     }
+
     public String get_first_line() {
         return (String)this.list.get(1);
     }
@@ -51,6 +52,7 @@ public class fileReading {
     public int get_num_of_lines() {
         return this.list.size();
     }
+
     public ArrayList<String> get_lines() {
         return (ArrayList<String>) list;
     }

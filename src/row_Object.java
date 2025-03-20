@@ -1,6 +1,3 @@
-import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 class row_Object {
@@ -15,7 +12,7 @@ class row_Object {
         this.country_code = country_code;
         this.gdp_Values = gdp_Values;
     }
-
+    //Getters to get those values
     public String get_data_Type(){
         return data_Type;
     }

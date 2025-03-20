@@ -9,9 +9,11 @@ public class JTableCalculation {
 
 
     void calculation() {
+        //Reading file in
         fileReading file  = new fileReading(file_Name);
         file.process_file();
         List<String> list = file.get_lines();
+        //Creating StreamParser object
         StreamParser parser = new StreamParser();
         //Calling parser method and passing in that list, getting a list of objects back
         list_of_objects = parser.parser((ArrayList<String>) list);
@@ -34,6 +36,7 @@ public class JTableCalculation {
             rowData[1] = obj.getCountry();        // Second column
             rowData[2] = obj.getCountry_code();   // Third column
 
+            //Inserting GDP values into the double list.
             List<Double> gdpValues = obj.getGdp_Values();
             if (gdpValues != null) {
                 for (int j = 0; j < gdpValues.size(); j++) {
@@ -49,6 +52,7 @@ public class JTableCalculation {
             this.data[i] = rowData;
         }
     }
+
     String[] getColumns() {
         return this.columns;
     }
@@ -59,6 +63,3 @@ public class JTableCalculation {
         return list_of_objects;
     }
 }
-
-
-

@@ -2,11 +2,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
+
 
 public class StreamParser {
 
-
+    //Parsing the list of rows and creating a list of objects
     public List<row_Object> parser(ArrayList<String> lines){
     return lines.stream()
 

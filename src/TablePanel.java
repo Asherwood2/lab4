@@ -1,14 +1,13 @@
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-import java.awt.*;
 
-public class TablePanel extends JPanel {
+public class TablePanel extends JPanel implements ListSelectionListener {
     private JTable jtable;
     private JScrollPane jsp;
     private JLabel lbl;
 
-
+    //Creating Jtable by passing in the two arrays made in JTableCalculation
     public TablePanel(String[] columns, Object[][] data) {
         jtable = new JTable(data, columns);
         jtable.setRowHeight(30);
@@ -24,56 +23,55 @@ public class TablePanel extends JPanel {
 
         //Creating scroll pane to be able to scroll
         jsp = new JScrollPane(jtable);
+        lbl = new JLabel();
+        jtable.getSelectionModel().addListSelectionListener(this);
+    }
 
+    //Method for outputting info about a row when clicked on
+    @Override
+    public void valueChanged(ListSelectionEvent e) {
 
-        jtable.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
-            @Override
-            public void valueChanged(ListSelectionEvent e) {
-                // Ensure that the change is not caused by the selection model itself
-                if (!e.getValueIsAdjusting()) {
-                    int selectedRow = jtable.getSelectedRow();
-                    if (selectedRow != -1) {
-                        // Get the GDP values for the selected row, starting from column 3 onwards
-                        double sum = 0;
-                        int count = 0;
+        if (!e.getValueIsAdjusting()) {
+            int selectedRow = jtable.getSelectedRow();
+            if (selectedRow != -1) {
+                // Get the GDP values for the selected row, starting from column 3 onwards
+                double sum = 0;
+                int count = 0;
 
-                        // Assuming GDP values start from column 3 onwards (index 3, 4, etc.)
-                        for (int i = 3; i < jtable.getColumnCount(); i++) {
-                            Object value = jtable.getValueAt(selectedRow, i);
-                            if (value != null && value instanceof String && !((String) value).equals("N/A")) {
-                                try {
-                                    sum += Double.parseDouble((String) value);
-                                    count++;
-                                } catch (NumberFormatException ex) {
-                                    // Handle non-numeric values if any (you can skip or log them)
-                                }
-                            }
+                //Starting at the 4th column where GDP starts
+                for (int i = 3; i < jtable.getColumnCount(); i++) {
+                    Object value = jtable.getValueAt(selectedRow, i);
+                    if (value != null && value instanceof String && !((String) value).equals("N/A")) {
+                        try {
+                            sum += Double.parseDouble((String) value);
+                            count++;
+                        } catch (NumberFormatException ex) {
+
                         }
-
-                        // Calculate the average GDP for the selected row
-                        double average = (count > 0) ? sum / count : 0;
-
-                        // Display the average GDP in the JLabel
-                        showAverageGDP(average);
                     }
                 }
+
+                // Calculate the average GDP for the selected row
+                double average = (count > 0) ? sum / count : 0;
+
+                // Display the average GDP in the JLabel
+                showAverageGDP(average);
             }
-        });
-
-
-    }
-    // Method to set the average GDP in the JLabel
-    private void showAverageGDP (double average){
-        String averageText = "Average GDP: (" + String.format("%.2f", average) + ")";
-        if (lbl == null) {
-            lbl = new JLabel();  // Create the JLabel if it doesn't exist
         }
-        lbl.setText(averageText);  // Update the JLabel with the new average
     }
+
+    // Method to set the average GDP in the JLabel
+    private void showAverageGDP(double average) {
+        String averageText = "Average GDP: (" + String.format("%.2f", average) + ")";
+        lbl.setText(averageText);
+    }
+
     public JScrollPane getScrollPane() {
         return jsp;
     }
-    public JLabel getLabel() {
+    public JLabel getAverageGDPLabel() {
         return lbl;
     }
 }
+
+
