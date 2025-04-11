@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
+//lab4
 public class fileReading {
     private String filename;
     private List<String> list = new ArrayList();

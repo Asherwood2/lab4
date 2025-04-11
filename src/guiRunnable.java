@@ -1,7 +1,7 @@
 import java.awt.*;
 import javax.swing.*;
 
-
+//Lab4
 public class guiRunnable {
     public static void main(String[] args) {
 

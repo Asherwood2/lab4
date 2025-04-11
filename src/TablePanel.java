@@ -1,7 +1,7 @@
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-
+//lab4
 public class TablePanel extends JPanel implements ListSelectionListener {
     private JTable jtable;
     private JScrollPane jsp;

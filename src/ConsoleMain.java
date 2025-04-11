@@ -1,3 +1,4 @@
+//Lab4
 public class ConsoleMain {
     public ConsoleMain() {
     }
