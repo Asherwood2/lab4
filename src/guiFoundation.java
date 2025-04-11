@@ -1,6 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
-
+//Facade pattern
 public class guiFoundation {
         private JFrame frame;
         private JTableCalculation calculation;

@@ -1,7 +1,7 @@
 import java.awt.*;
 import javax.swing.*;
 
-//Lab4
+//Lab3 Runnable, DO NOT RUN FOR LAB 4, run Main
 public class guiRunnable {
     public static void main(String[] args) {
 
