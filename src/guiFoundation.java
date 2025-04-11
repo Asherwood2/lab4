@@ -16,7 +16,7 @@ public class guiFoundation {
             part2 = new Part2Panel(calculation.getListOfObjects());
         }
 
-        private void creategui() {
+        public void creategui() {
             setupFrame();
             buildPanels();
             setPanels();
